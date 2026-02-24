@@ -4,11 +4,40 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Proyecto_Evently"
-    Title="Proyecto_Evently">
+    xmlns:Views="clr-namespace:Proyecto_Evently.Views"
+    Title="Proyecto_Evently"
+    FlyoutBehavior="Flyout">
+    <TabBar>
+        <ShellContent
+            Title="Configuraciones"
+            ContentTemplate="{DataTemplate Views:CONFIG}"/>
+        <ShellContent
+            Title="Perfil"
+            ContentTemplate="{DataTemplate Views:Perfil}"/>
+    </TabBar>
+    
+     <FlyoutItem Title="Dashboard" >
+        <ShellContent
+            Title="Page1"
+            ContentTemplate="{DataTemplate Views:Dashboard}"/>
+    </FlyoutItem>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Ordenes">
+        <ShellContent
+            Title="Page2"
+            ContentTemplate="{DataTemplate Views:Ordenes}"/>
+    </FlyoutItem>
 
+    <FlyoutItem Title="Repartidores" >
+        <ShellContent
+            Title="Page3"
+            ContentTemplate="{DataTemplate Views:Repartidores}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Rutas">
+        <ShellContent
+            Title="Page4"
+            ContentTemplate="{DataTemplate Views:Rutas}" />
+    </FlyoutItem>
+    
 </Shell>
