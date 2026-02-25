@@ -1,8 +1,8 @@
 namespace Proyecto_Evently.Views;
 
-public partial class Perfil : ContentPage
+public partial class Detalles : ContentPage
 {
-	public Perfil()
+	public Detalles ()
 	{
 		InitializeComponent();
 	}

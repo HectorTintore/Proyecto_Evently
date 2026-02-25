@@ -1,8 +1,8 @@
 namespace Proyecto_Evently.Views;
 
-public partial class CONFIG : ContentPage
+public partial class Login : ContentPage
 {
-	public CONFIG()
+	public Login()
 	{
 		InitializeComponent();
 	}

@@ -7,14 +7,7 @@
     xmlns:Views="clr-namespace:Proyecto_Evently.Views"
     Title="Proyecto_Evently"
     FlyoutBehavior="Flyout">
-    <TabBar>
-        <ShellContent
-            Title="Configuraciones"
-            ContentTemplate="{DataTemplate Views:CONFIG}"/>
-        <ShellContent
-            Title="Perfil"
-            ContentTemplate="{DataTemplate Views:Perfil}"/>
-    </TabBar>
+
     
      <FlyoutItem Title="Dashboard" >
         <ShellContent
@@ -28,10 +21,10 @@
             ContentTemplate="{DataTemplate Views:Ordenes}"/>
     </FlyoutItem>
 
-    <FlyoutItem Title="Repartidores" >
+    <FlyoutItem Title="Detalles" >
         <ShellContent
             Title="Page3"
-            ContentTemplate="{DataTemplate Views:Repartidores}" />
+            ContentTemplate="{DataTemplate Views:Detalles}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Rutas">
@@ -39,5 +32,13 @@
             Title="Page4"
             ContentTemplate="{DataTemplate Views:Rutas}" />
     </FlyoutItem>
-    
+
+
+    <FlyoutItem Title="Login" >
+        <ShellContent
+            Title="Page5"
+            ContentTemplate="{DataTemplate Views:Login}"/>
+    </FlyoutItem>
+
+
 </Shell>

@@ -71,19 +71,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\CONFIG.xaml">
+	  <Compile Update="Views\Detalles.xaml.cs">
+	    <DependentUpon>Detalles.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Dashboard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Dashboard.xaml">
+	  <MauiXaml Update="Views\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Ordenes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Perfil.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Repartidores.xaml">
+	  <MauiXaml Update="Views\Detalles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Rutas.xaml">
