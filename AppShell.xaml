@@ -7,7 +7,9 @@
     xmlns:Views="clr-namespace:Proyecto_Evently.Views"
     Title="Proyecto_Evently"
     FlyoutBehavior="Flyout">
-
+    <TabBar>
+        
+    </TabBar>
     
      <FlyoutItem Title="Dashboard" >
         <ShellContent
