@@ -1,12 +1,100 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Proyecto_Evently.Views.Login"
-             Title="Login">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Login"
+             Opacity="0">
+
+    <Grid>
+
+        <!-- Fondo degradado -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="White" Offset="0.0"/>
+                <GradientStop Color="White" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Tarjeta moderna -->
+        <Border x:Name="LoginCard"
+                BackgroundColor="White"
+                StrokeShape="RoundRectangle 30"
+                Padding="30"
+                WidthRequest="330"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Scale="0.8">
+
+            <VerticalStackLayout Spacing="18">
+
+                <Label Text="evntly"
+                       FontSize="36"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Bienvenido"
+                       FontSize="14"
+                       TextColor="Gray"
+                       HorizontalOptions="Center"/>
+
+                <!-- Email -->
+                <Grid ColumnDefinitions="40,*"
+                      BackgroundColor="#F3F4F6"
+                      Padding="10">
+
+                    <Label Text="📧"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+                    <Entry x:Name="CorreoEntry"
+                           Grid.Column="1"
+                           Placeholder="Correo electrónico"
+                           Keyboard="Email"
+                           BackgroundColor="Transparent"
+                           TextColor="Black"/>
+                </Grid>
+
+                <!-- Password -->
+                <Grid ColumnDefinitions="40,*,40"
+                      BackgroundColor="#F3F4F6"
+                      Padding="10">
+
+                    <Label Text="🔒"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+                    <Entry x:Name="PasswordEntry"
+                           Grid.Column="1"
+                           Placeholder="Contraseña"
+                           IsPassword="True"
+                           BackgroundColor="Transparent"
+                           TextColor="Black"/>
+
+                    <Button x:Name="TogglePasswordBtn"
+                            Grid.Column="2"
+                            Text="👁"
+                            BackgroundColor="Transparent"
+                            Clicked="OnTogglePassword"/>
+                </Grid>
+
+                <Button Text="Iniciar Sesión"
+                        Clicked="OnLoginClicked"
+                        BackgroundColor="LightGrey"
+                        TextColor="Black"
+                        CornerRadius="20"
+                        HeightRequest="45"/>
+
+                <Button Text="Registrarse"
+                        Clicked="OnRegisterClicked"
+                        BackgroundColor="LightGrey"
+                        TextColor="Black"
+                        CornerRadius="20"
+                        HeightRequest="45"/>
+
+            </VerticalStackLayout>
+
+        </Border>
+
+    </Grid>
+
 </ContentPage>
