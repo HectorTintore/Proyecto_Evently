@@ -4,14 +4,109 @@
              x:Class="Proyecto_Evently.Views.Detalles"
              Title="Detalles"
             BackgroundColor="#F5F5F5">
-    
+
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
 
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Grid ColumnDefinitions="*, 2*" ColumnSpacing="10" HeightRequest="48">
+
+                    <Border Grid.Column="0"
+          Stroke="#D1D5DB"
+          StrokeThickness="1"
+          BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+
+                        <Grid ColumnDefinitions="*, Auto" Padding="10,0">
+                            <Picker x:Name="FiltroPicker"
+                  Grid.Column="0"
+                  Title="Ordenar por:"
+                  TitleColor="#6B7280"
+                  TextColor="#111827"
+                  FontSize="13"
+                  FontAttributes="Bold"
+                  VerticalOptions="Center"
+                  SelectedIndexChanged="FiltroPicker_SelectedIndexChanged">
+                                <Picker.Items>
+                                    <x:String>Pendientes</x:String>
+                                    <x:String>Entregados</x:String>
+                                </Picker.Items>
+                            </Picker>
+                            <Label Grid.Column="1"
+                 Text="▾"
+                 TextColor="#9CA3AF"
+                 VerticalOptions="Center"
+                 FontSize="16"
+                 InputTransparent="True" />
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Column="1"
+          Stroke="#D1D5DB"
+          StrokeThickness="1"
+          BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+
+                        <SearchBar x:Name="BusquedaBarra"
+                 Placeholder="Id del pedido..."
+                 FontSize="13"
+                 PlaceholderColor="#9CA3AF"
+                 TextColor="#111827"
+                 BackgroundColor="Transparent"
+                 VerticalOptions="Center"
+                 Margin="0" />
+                    </Border>
+                </Grid>
+            </VerticalStackLayout>
+
+
             <Border StrokeShape="RoundRectangle 10"
-                Stroke="#E0E0E0"
-                Padding="15"
-                BackgroundColor="White">
+          Stroke="#E0E0E0"
+          Padding="15"
+          BackgroundColor="White">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.1" />
+                </Border.Shadow>
+
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*, Auto">
+                    <VerticalStackLayout Grid.Row="0" Grid.Column="0">
+                        <Label Text="Id: " 
+                     FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Detalles del pedido:" 
+                     FontSize="12" TextColor="Black"/>
+                    </VerticalStackLayout >
+
+                    <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+                        <Label Text="-------------------"  
+                     TextColor="Black" FontSize="18"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Spacing="2">
+                        <Label Text="Origen" HorizontalOptions="End" FontSize="10" TextColor="Gray"/>
+                        <Label Text="-------" HorizontalOptions="End" FontAttributes="Bold" FontSize="12" TextColor="#333"/>
+
+                        <Label Text="Destino" HorizontalOptions="End" FontSize="10" TextColor="Gray" Margin="0,5,0,0"/>
+                        <Label Text="-------" HorizontalOptions="End" FontAttributes="Bold" FontSize="12" TextColor="#333"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" Color="#F0F0F0" Margin="0,10"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Nombre del repartidor" 
+                 TextColor="Black"  FontSize="12" VerticalOptions="Center" FontAttributes="Bold"/>
+
+                    <Label Grid.Row="3" Grid.Column="1" Text="----" 
+                 TextColor="Black" FontSize="12" HorizontalOptions="End" VerticalOptions="Center"/>
+                </Grid>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 10"
+Stroke="#E0E0E0"
+Padding="15"
+BackgroundColor="White">
                 <Border.Shadow>
                     <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.1" />
                 </Border.Shadow>
@@ -19,14 +114,14 @@
                 <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*, Auto, Auto">
                     <VerticalStackLayout Grid.Row="0" Grid.Column="0">
                         <Label Text="Id: " 
-                           FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+           FontSize="20" FontAttributes="Bold" TextColor="Black"/>
                         <Label Text="Detalles del pedido:" 
-                           FontSize="12" TextColor="Black"/>
+           FontSize="12" TextColor="Black"/>
                     </VerticalStackLayout >
 
                     <VerticalStackLayout Grid.Row="1" Grid.Column="0">
                         <Label Text="-------------------"  
-                           TextColor="Black" FontSize="18"/>
+           TextColor="Black" FontSize="18"/>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Spacing="2">
@@ -39,48 +134,13 @@
 
                     <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" Color="#F0F0F0" Margin="0,10"/>
 
-                    <Label Grid.Row="3" Grid.Column="0" Text="Transportistas:" 
-                       TextColor="Black"  FontSize="12" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Row="3" Grid.Column="0" Text="Nombre del repartidor:" 
+       TextColor="Black"  FontSize="12" VerticalOptions="Center" FontAttributes="Bold"/>
 
                     <Label Grid.Row="3" Grid.Column="1" Text="----" 
-                       TextColor="Black" FontSize="12" HorizontalOptions="End" VerticalOptions="Center"/>
+       TextColor="Black" FontSize="12" HorizontalOptions="End" VerticalOptions="Center"/>
                 </Grid>
             </Border>
-
-            <Border StrokeShape="RoundRectangle 10"
-                Stroke="#E0E0E0"
-                Padding="15"
-                BackgroundColor="White">
-                <Border.Shadow>
-                    <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.1" />
-                </Border.Shadow>
-
-                <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*, Auto">
-                    <VerticalStackLayout Grid.Row="0" Grid.Column="0">
-                        <Label Text="$1,500.00" 
-                           FontSize="20" FontAttributes="Bold" TextColor="Black"/>
-                        <Label Text="2304km @ $0.65 / km" 
-                           FontSize="12" TextColor="Gray"/>
-                    </VerticalStackLayout>
-
-                    <VerticalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Spacing="2">
-                        <Label Text="Origen" HorizontalOptions="End" FontSize="10" TextColor="Gray"/>
-                        <Label Text="Baja California, Tijuana" HorizontalOptions="End" FontAttributes="Bold" FontSize="12" TextColor="#333"/>
-
-                        <Label Text="Destino" HorizontalOptions="End" FontSize="10" TextColor="Gray" Margin="0,5,0,0"/>
-                        <Label Text="CDMX, Ciudad de México" HorizontalOptions="End" FontAttributes="Bold" FontSize="12" TextColor="#333"/>
-                    </VerticalStackLayout>
-
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" Color="#F0F0F0" Margin="0,10"/>
-
-                    <Label Grid.Row="3" Grid.Column="0" Text="Logística Express" 
-                       TextColor="#E63946" FontSize="12" VerticalOptions="Center" FontAttributes="Bold"/>
-
-                    <Label Grid.Row="3" Grid.Column="1" Text="Ver más" 
-                       TextColor="#3498DB" FontSize="12" HorizontalOptions="End" VerticalOptions="Center"/>
-                </Grid>
-            </Border>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

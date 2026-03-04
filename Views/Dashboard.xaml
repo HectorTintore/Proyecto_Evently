@@ -3,7 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Proyecto_Evently.Views.Dashboard"
              Title="Dashboard">
-    <VerticalStackLayout>
-        <Label Text="Evently" FontSize="30" FontAttributes="Italic" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
-    </VerticalStackLayout>
+
+
+
+    <Grid>
+
+     
+        <BoxView Color="White"/>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Sal -->
+                <Label Text="Bienvenido a Evently"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+
+                <!-- Tarjeta de rastreo -->
+                <Frame BackgroundColor="Black"
+                       CornerRadius="15"
+                       Padding="15">
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Rastree su envío"
+                               TextColor="White"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Entry Placeholder="Ingrese número de seguimiento"
+                                   PlaceholderColor="Gray"
+                                   TextColor="White"/>
+
+                            <Button Text=">"
+                                    Grid.Column="1"
+                                    BackgroundColor="Red"
+                                    TextColor="White"
+                                    WidthRequest="50"
+                                    Clicked="Button_Clicked"/>
+
+
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Opciones -->
+                <Frame BackgroundColor="Black"
+                       CornerRadius="15"
+                       Padding="15">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="cotizacion.jpg"
+                               WidthRequest="40"/>
+                        <Label Text="Obtener una cotización"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Black"
+                       CornerRadius="15"
+                       Padding="15">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="envio.png"
+                               WidthRequest="40"/>
+                        <Label Text="Crear envío"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Black"
+                       CornerRadius="15"
+                       Padding="15">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="recoleccion.jpg"
+                               WidthRequest="40"/>
+                        <Label Text="Programar recolección"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+
+
+
+
 </ContentPage>

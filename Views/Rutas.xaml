@@ -5,7 +5,7 @@
              Title="Rutas">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Aqui ira el mapa de las rutas."
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

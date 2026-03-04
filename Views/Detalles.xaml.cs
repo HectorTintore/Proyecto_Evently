@@ -6,4 +6,12 @@ public partial class Detalles : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void FiltroPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = sender as Picker;
+        string seleccion = picker.SelectedItem.ToString();
+
+      
+    }
 }
