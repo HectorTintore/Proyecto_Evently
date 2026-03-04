@@ -153,6 +153,6 @@ public partial class Login : ContentPage
     private void OnTogglePassword(object? sender, EventArgs e)
     {
         PasswordEntry.IsPassword = !PasswordEntry.IsPassword;
-        TogglePasswordBtn.Text = PasswordEntry.IsPassword ? "👁" : "🙈";
+        TogglePasswordBtn.Text = PasswordEntry.IsPassword ? "👁" : "🫣";
     }
 }
