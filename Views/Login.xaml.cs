@@ -124,7 +124,7 @@ public partial class Login : ContentPage
                 {
                     new Label
                     {
-                        Text = "Bienvenido a evntly!",
+                        Text = "Bienvenido a Evntly!",
                         FontSize = 26,
                         TextColor = Colors.Black
                     },
