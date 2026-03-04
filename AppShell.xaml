@@ -8,10 +8,16 @@
     Title="Proyecto_Evently"
     FlyoutBehavior="Flyout">
 
-    
-     <FlyoutItem Title="Dashboard" >
+
+    <FlyoutItem Title="Perfil">
+        <FlyoutItem.Icon>
+            <FontImageSource Glyph="&#xf007;"
+                             FontFamily="FontAwesome"
+                             Color="#60A5FA"
+                             Size="18"/>
+        </FlyoutItem.Icon>
         <ShellContent
-            Title="Page1"
+            Title="Perfil"
             ContentTemplate="{DataTemplate Views:Dashboard}"/>
     </FlyoutItem>
 

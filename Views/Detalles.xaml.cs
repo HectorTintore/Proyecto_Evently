@@ -6,4 +6,18 @@ public partial class Detalles : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void FiltroPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = sender as Picker;
+        string seleccion = picker.SelectedItem.ToString();
+
+        // aquí filtras tu lista
+    }
+
+    private void OnBorderTapped(object sender, EventArgs e)
+    {
+     
+        FiltroPicker.Focus();
+    }
 }
