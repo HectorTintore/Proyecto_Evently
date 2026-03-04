@@ -83,7 +83,7 @@ public partial class Login : ContentPage
         usuarios.Add(correo, password);
         GuardarUsuarios();
 
-        await DisplayAlertAsync("Éxito", "Usuario registrado correctamente 🎉", "OK");
+        await DisplayAlertAsync("Exito", "Usuario registrado correctamente!!!", "OK");
 
         CorreoEntry.Text = string.Empty;
         PasswordEntry.Text = string.Empty;
