@@ -106,7 +106,7 @@ public partial class Login : ContentPage
         }
         else
         {
-            await DisplayAlertAsync("Error", "Correo o contraseña incorrectos", "OK");
+            await DisplayAlertAsync("Error", "El Correo o la contraseña incorrectos", "OK");
         }
     }
 
