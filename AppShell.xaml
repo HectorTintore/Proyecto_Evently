@@ -12,7 +12,7 @@
      <FlyoutItem Title="Dashboard" >
         <ShellContent
             Title="Page1"
-            ContentTemplate="{DataTemplate Views:Dashboard}"/>
+            ContentTemplate="{DataTemplate Views:Home}"/>
     </FlyoutItem>
 
     <FlyoutItem Title="Ordenes">
@@ -24,7 +24,7 @@
     <FlyoutItem Title="Detalles" >
         <ShellContent
             Title="Page3"
-            ContentTemplate="{DataTemplate Views:Detalles}" />
+            ContentTemplate="{DataTemplate Views:LotesPrueba}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Rutas">

@@ -1,108 +1,89 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Proyecto_Evently"
+             xmlns:vm="clr-namespace:Proyecto_Evently.ViewModels"
              x:Class="Proyecto_Evently.Views.Ordenes"
-             Title="Ordenes"
-            >
+             
+             Title="Ordenes">
+
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="25" Spacing="15">
 
-            <Frame BorderColor="{StaticResource Primary}" CornerRadius="10" Padding="15">
-                <VerticalStackLayout Spacing="5">
-                    <Label Text="IDENTIFICACIÓN DEL LOTE" FontAttributes="Bold" TextColor="{StaticResource Primary}" FontSize="12"/>
-                    <Label Text="ID Lote: ----------" 
-                          TextColor="Gray"
-                           FontSize="16"/>
-                </VerticalStackLayout>
-            </Frame>
+            <Label Text="NUEVO REGISTRO DE LOTE" 
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="#2B3A67"
+                   Margin="0,0,0,10"/>
 
-            <Label Text="RUTA DE ENVÍO" FontAttributes="Bold" Margin="0,10,0,0"/>
-            <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
-                <VerticalStackLayout Grid.Column="0" Spacing="5">
-                    <Label Text="Punto de Origen" FontSize="13"/>
-                    <Picker x:Name="PickerOrigen" Title="Seleccionar">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Almacén 1 (Mérida)</x:String>
-                                <x:String>Almacén 2 (Shenzhen)</x:String>
-                                <x:String>Centro de Distribución Norte</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                </VerticalStackLayout>
+            <!-- Código del Lote -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Código del Lote" FontAttributes="Bold" />
+                <Frame Padding="10,2" BorderColor="Gray" CornerRadius="8">
+                    <Entry Text="{Binding CodigoLote}" 
+                           Placeholder="Ej: LOTE-001" 
+                           VerticalOptions="Center"/>
+                </Frame>
+            </VerticalStackLayout>
 
-                <VerticalStackLayout Grid.Column="1" Spacing="5">
-                    <Label Text="Punto de Destino" FontSize="13"/>
-                    <Picker x:Name="PickerDestino" Title="Seleccionar">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Almacén 1 (Mérida)</x:String>
-                                <x:String>Almacén 2 (Shenzhen)</x:String>
-                                <x:String>Distribuidora A</x:String>
-                                <x:String>Distribuidora B</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                </VerticalStackLayout>
-            </Grid>
+            <!-- Picker Origen -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Punto de Origen" FontAttributes="Bold" />
+                <Frame Padding="10,2" BorderColor="Gray" CornerRadius="8">
+                    <Picker Title="Seleccione origen"
+                            ItemsSource="{Binding Ubicaciones}"
+                            ItemDisplayBinding="{Binding Nombre}"
+                            SelectedItem="{Binding OrigenSeleccionado}" />
+                </Frame>
+            </VerticalStackLayout>
 
-            <Label Text="DETALLES DE CARGA" FontAttributes="Bold" Margin="0,10,0,0"/>
+            <!-- Picker Destino (CORREGIDO) -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Punto de Destino" FontAttributes="Bold" />
+                <Frame Padding="10,2" BorderColor="Gray" CornerRadius="8">
+                    <Picker Title="Seleccione destino"
+                            ItemsSource="{Binding Ubicaciones}"
+                            ItemDisplayBinding="{Binding Nombre}"
+                            SelectedItem="{Binding DestinoSeleccionado}" />
+                </Frame>
+            </VerticalStackLayout>
 
-            <HorizontalStackLayout Spacing="20">
+            <!-- Descripción -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Descripción opcional" FontAttributes="Bold" />
+                <Frame Padding="10,2" BorderColor="Gray" CornerRadius="8">
+                    <Editor Text="{Binding Descripcion}" 
+                            Placeholder="Notas adicionales sobre el envío..." 
+                            HeightRequest="100" 
+                            AutoSize="TextChanges"/>
+                </Frame>
+            </VerticalStackLayout>
 
-                <!--    -->
-                <VerticalStackLayout WidthRequest="150">
-                    <Label Text="Categoria" FontSize="13"/>
-                    <Picker Title="Nivel">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Tecnologia</x:String>
-                                <x:String>Jugueteria</x:String>
-                                <x:String>Ropa</x:String>
-
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                </VerticalStackLayout>
-                <!--     -->
-
-                <VerticalStackLayout WidthRequest="150">
-                    <Label Text="Tipo de Contenedor" FontSize="13"/>
-                    <Picker Title="Tipo">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Caja Estándar</x:String>
-                                <x:String>Pallet</x:String>
-                                <x:String>Contenedor </x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-
-            <Label Text="Contenido / Manifiesto" FontSize="13"/>
-            <Editor Placeholder="Agrega detalles del lote."
-                    HeightRequest="100"
-                    AutoSize="Disabled"/>
-
-            <Button Text="GENERAR LOTE Y GUÍA"
-                    BackgroundColor="{StaticResource Primary}"
+            <!-- Botón de Acción -->
+            <Button Text="GUARDAR LOTE"
+                    Command="{Binding GuardarLoteCommand}"
+                    HeightRequest="55"
+                    CornerRadius="10"
+                    BackgroundColor="#2B3A67"
                     TextColor="White"
                     FontAttributes="Bold"
-                    Margin="0,20,0,0"
-                    CornerRadius="25"
-                    HeightRequest="50"/>
+                    Margin="0,15,0,0">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsBusy}" Value="True">
+                        <Setter Property="IsEnabled" Value="False" />
+                        <Setter Property="Opacity" Value="0.5" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
 
-            <Button Text="CANCELAR"
-                    BackgroundColor="Transparent"
-                    TextColor="{StaticResource Gray600}"
-                    BorderColor="{StaticResource Gray600}"
-                    BorderWidth="1"
-                    CornerRadius="25"/>
+            <!-- Indicador de Carga -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                               IsVisible="{Binding IsBusy}" 
+                               Color="#2B3A67" 
+                               HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>
-
-
 
 </ContentPage>

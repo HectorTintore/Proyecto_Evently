@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Proyecto_Evently"
+             xmlns:vm="clr-namespace:Proyecto_Evently.ViewModels"
+             xmlns:models="clr-namespace:Proyecto_Evently.Models"
+             x:Class="Proyecto_Evently.Views.LotesPrueba"
+             
+             Title="LotesPrueba">
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- Cabecera con botón de refrescar -->
+        <Button Grid.Row="0" 
+                Text="Actualizar Lista" 
+                Command="{Binding CargarLotesDbCommand}"
+                Margin="10"
+                BackgroundColor="#2B3A67"
+                TextColor="White"
+                ImageSource="refresh_icon.png" />
+        <!-- Asegúrate de tener el icono o quita esta línea -->
+
+        <!-- Lista de Lotes -->
+        <RefreshView Grid.Row="1" 
+                     IsRefreshing="{Binding IsBusy}" 
+                     Command="{Binding CargarLotesDbCommand}">
+
+            <CollectionView ItemsSource="{Binding Lotes}"
+                            EmptyView="No hay lotes registrados actualmente.">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Lote">
+                        <Frame Margin="10,5" 
+                               Padding="15" 
+                               CornerRadius="10" 
+                               BorderColor="LightGray"
+                               HasShadow="True">
+
+                            <VerticalStackLayout Spacing="5">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="{Binding CodigoLote}" 
+                                           FontSize="18" 
+                                           FontAttributes="Bold" 
+                                           TextColor="#2B3A67"/>
+
+                                    <Border BackgroundColor="#E3F2FD" 
+                                            StrokeShape="RoundRectangle 5"
+                                            Padding="5,2">
+                                        <Label Text="{Binding Estado}" 
+                                               FontSize="12" 
+                                               TextColor="#1976D2"
+                                               VerticalOptions="Center"/>
+                                    </Border>
+                                    <Border BackgroundColor="#E3F2FD" 
+                                                StrokeShape="RoundRectangle 5"
+                                                Padding="5,2">
+                                                <Label Text="{Binding Id}" 
+                                                FontSize="12" 
+                                                TextColor="#1976D2"
+                                                VerticalOptions="Center"/>
+                                        </Border>
+                                    <Border BackgroundColor="#E3F2FD" 
+                                            StrokeShape="RoundRectangle 5"
+                                            Padding="5,2">
+                                        <Label Text="{Binding Destino}" 
+                                            FontSize="12" 
+                                            TextColor="#1976D2"
+                                            VerticalOptions="Center"/>
+                                        
+                                    </Border>
+                                    <Border BackgroundColor="#E3F2FD" 
+                                            StrokeShape="RoundRectangle 5"
+                                            Padding="5,2">
+                                        <Label Text="{Binding Origen}" 
+                                            FontSize="12" 
+                                            TextColor="#1976D2"
+                                            VerticalOptions="Center"/>
+                                    </Border>
+                                    <Border BackgroundColor="#E3F2FD" 
+                                            StrokeShape="RoundRectangle 5"
+                                            Padding="5,2">
+                                          <Label Text="{Binding OrigenLatitud}" 
+                                            FontSize="12" 
+                                            TextColor="#1976D2"
+                                            VerticalOptions="Center"/>
+                                    </Border>
+                                    <Border BackgroundColor="#E3F2FD" 
+                                            StrokeShape="RoundRectangle 5"
+                                            Padding="5,2">
+                                        <Label Text="{Binding OrigenLongitud}" 
+                                            FontSize="12" 
+                                            TextColor="#1976D2"
+                                            VerticalOptions="Center"/>
+                                    </Border>
+                                </HorizontalStackLayout>
+
+                                <Label Text="{Binding Descripcion}" 
+                                       FontSize="14" 
+                                       TextColor="Gray" />
+
+                                <BoxView HeightRequest="1" Color="LightGray" Margin="0,5"/>
+
+                                <HorizontalStackLayout Spacing="20">
+                                    <VerticalStackLayout>
+                                        <Label Text="Fecha" FontSize="11" TextColor="Silver"/>
+                                        <Label Text="{Binding FechaCreacion, StringFormat='{0:dd/MM/yyyy HH:mm}'}" 
+                                               FontSize="12"/>
+                                    </VerticalStackLayout>
+
+                                    <!-- Aquí podrías mostrar las coordenadas o nombres de ubicación si los tienes en el modelo -->
+                                    <VerticalStackLayout>
+                                        <Label Text="Ubicación" FontSize="11" TextColor="Silver"/>
+                                        <Label Text="Ver detalles..." FontSize="12" TextColor="Blue" TextDecorations="Underline"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <!-- Indicador de carga centralizado (opcional si usas RefreshView) -->
+        <ActivityIndicator Grid.Row="1"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Color="#2B3A67" />
+    </Grid>
+</ContentPage>

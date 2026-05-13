@@ -1,8 +1,8 @@
 namespace Proyecto_Evently.Views;
 
-public partial class Dashboard : ContentPage
+public partial class Home : ContentPage
 {
-	public Dashboard()
+	public Home()
 	{
 		InitializeComponent();
 	}
